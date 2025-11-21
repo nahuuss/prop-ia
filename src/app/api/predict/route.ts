@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
 
     // Mock prediction for local development
     // In production (Vercel), use the Python API
-    const { rooms, bathrooms, surface_total, surface_covered, property_type, location, description, expenses, construction_year } = body;
+    const { rooms, bathrooms, surface_total, property_type, location, description, expenses, construction_year } = body;
 
     // Base prediction formula
     let prediction = (surface_total || 100) * 1000 + (rooms || 3) * 20000 + (bathrooms || 2) * 15000;
@@ -57,8 +57,9 @@ export async function POST(request: NextRequest) {
     prediction *= locationMultiplier;
 
     return NextResponse.json({ prediction: prediction });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error(error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }

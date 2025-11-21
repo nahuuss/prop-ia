@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { PropertyData } from "@/lib/prediction/preprocessor";
-import { Home, Ruler, Building2, Clock, Bath, BedDouble, Landmark, MapPin, Hash, CircleDollarSign, List } from "lucide-react";
+import { Home, Ruler, Building2, Clock, Bath, BedDouble, Landmark, MapPin, Hash, CircleDollarSign } from "lucide-react";
 
 const initialFormState: PropertyData = {
     bedrooms: null,
