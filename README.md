@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PROP-IA
 
-## Getting Started
+Asistente Inmobiliario Inteligente - Una plataforma IA para profesionales inmobiliarios en Argentina.
 
-First, run the development server:
+## 🚀 Características
 
+- **Tasación Inteligente**: Calcula valores estimados de propiedades usando algoritmos de IA
+- **Autenticación Firebase**: Sistema seguro de login con Google y email
+- **Dashboard Interactivo**: Panel de control con estadísticas y gestión de propiedades
+- **Arquitectura Clean**: Código organizado con separación de capas (Domain, Use Cases, Infrastructure)
+- **UI Moderna**: Interfaz construida con Next.js 16, React 19, Tailwind CSS y Lucide Icons
+
+## 🛠️ Tecnologías
+
+- **Frontend**: Next.js 16, React 19, TypeScript
+- **Styling**: Tailwind CSS
+- **Autenticación**: Firebase Auth
+- **Charts**: Recharts
+- **Icons**: Lucide React
+- **Cookies**: js-cookie
+
+## 📦 Instalación
+
+1. Clona el repositorio:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/facufedee/prop-ia.git
+cd prop-ia
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instala dependencias:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Configura las variables de entorno de Firebase (si es necesario)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Ejecuta el servidor de desarrollo:
+```bash
+npm run dev
+```
 
-## Learn More
+5. Abre [http://localhost:3000](http://localhost:3000) en tu navegador
 
-To learn more about Next.js, take a look at the following resources:
+## 🏗️ Arquitectura del Proyecto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── dashboard/         # Rutas protegidas del dashboard
+│   ├── login/            # Página de login
+│   └── registro/         # Página de registro
+├── domain/               # Lógica de negocio (Clean Architecture)
+│   ├── entities/        # Interfaces y tipos
+│   └── repositories/    # Interfaces de repositorios
+├── infrastructure/      # Capa de infraestructura
+│   ├── auth/           # Servicios de autenticación
+│   ├── firebase/       # Configuración Firebase
+│   └── repositories/   # Implementaciones de repositorios
+├── ui/                  # Capa de presentación
+│   ├── components/     # Componentes reutilizables
+│   ├── context/        # Contextos React
+│   └── sections/       # Secciones de página
+└── usecases/           # Casos de uso
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔐 Autenticación
 
-## Deploy on Vercel
+El sistema utiliza Firebase Authentication con:
+- Login con Google
+- Registro e inicio de sesión con email/contraseña
+- Middleware de Next.js para protección de rutas
+- Gestión de estado con React Context
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📊 Funcionalidades
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Dashboard
+- Estadísticas generales (propiedades, tasaciones, etc.)
+- Gráficos de evolución de tasaciones
+- Accesos rápidos a funciones principales
+
+### Tasación Inteligente
+- Formulario para ingresar datos de propiedad
+- Cálculo automático basado en:
+  - Metros cuadrados
+  - Antigüedad
+  - Cantidad de ambientes
+  - Ubicación
+
+### Gestión de Propiedades
+- Listado de propiedades
+- Estadísticas y reportes
+
+## 🚀 Despliegue
+
+### Vercel (Recomendado)
+```bash
+npm run build
+npm run start
+```
+
+### Otros
+El proyecto puede desplegarse en cualquier plataforma que soporte Next.js.
+
+## 📝 Scripts Disponibles
+
+- `npm run dev` - Servidor de desarrollo
+- `npm run build` - Construir para producción
+- `npm run start` - Servidor de producción
+- `npm run lint` - Ejecutar ESLint
+
+## 🤝 Contribuir
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 📞 Contacto
+
+Proyecto desarrollado para la comunidad inmobiliaria argentina.
